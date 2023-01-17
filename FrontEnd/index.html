@@ -3,10 +3,18 @@
 
 <head>
     <style>
+        /* Bounding box for image and caption */
+        .image-box {
+            width: 50%;
+            float: left;
+            border: 1px solid black;
+            padding: 10px;
+            position: relative;
+        }
+
         /* CSS for image */
         img {
-            float: left;
-            width: 50%;
+            width: 100%;
             height: auto;
         }
 
@@ -15,7 +23,7 @@
             text-align: center;
             font-size: 20px;
             font-weight: bold;
-            margin-top: 10px;
+            margin: 10px 0 0 0;
         }
 
         /* CSS for buttons */
@@ -49,29 +57,34 @@
 </head>
 
 <body>
-    <figure>
-        <img src="image.jpg" alt="Image">
-        <figcaption>Spot of the week</figcaption>
-    </figure>
-
-    <button>A</button>
-    <button>B</button>
-    <button>C</button>
-
-    <table>
-        <tr>
-            <th>Header 1</th>
-            <th>Header 2</th>
-        </tr>
-        <tr>
-            <td>Row 1, Cell 1</td>
-            <td>Row 1, Cell 2</td>
-        </tr>
-        <tr>
-            <td>Row 2, Cell 1</td>
-            <td>Row 2, Cell 2</td>
-        </tr>
-    </table>
+    <div style="display: flex; width: 100%;">
+        <div class="image-box" style="margin-top:10px;">
+            <div style="margin-top:-20px">
+            <figcaption>Spot of the week</figcaption>
+            </div>
+            <img src="image.jpg" alt="Image">
+        </div>
+            
+        <div style="display: flex; flex-direction: column; align-items:center; width: 50%; padding-right:20px; margin-left:20px;">
+            <button style="width: 100%; height: 100px;">A</button>
+            <button style="width: 100%;">B</button>
+            <button style="width: 100%;">C</button>
+            <table style="width: 100%; margin-top: 20px;">
+                <tr>
+                    <th>Header 1</th>
+                    <th>Header 2</th>
+                </tr>
+                <tr>
+                    <td>Row 1, Cell 1</td>
+                    <td>Row 1, Cell 2</td>
+                </tr>
+                <tr>
+                    <td>Row 2, Cell 1</td>
+                    <td>Row 2, Cell 2</td>
+                </tr>
+            </table>
+        </div>
+    </div>  
 </body>
 
 </html>
