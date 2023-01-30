@@ -1,14 +1,55 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Create Spot</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <p>Words</p>
-    </body>
-</html>
+  <head>
+    <title>Create a log entry</title>
+    <script>
+function readJSON(fileName) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var jsonData = JSON.parse(this.responseText);
+            return jsonData;
+        }
+    };
+    xhttp.open("GET", fileName, false);
+    xhttp.send();
+}
+
+function changeOptions(dropdown) {
+    var fileName = 'C:\Users\georg\OneDrive\source\ComputerScienceNEA\FrontEnd\operatorsJson' + dropdown.value + '.json';
+    var options = readJSON(fileName);
+    var secondDropdown = document.getElementById("secondDropdown");
+    secondDropdown.innerHTML = "";
+    for (var i = 0; i < options.length; i++) {
+        var opt = options[i];
+        var el = document.createElement("option");
+        el.textContent = opt;
+        el.value = opt;
+        secondDropdown.appendChild(el);
+    }
+}
+
+    </script>
+  </head>
+  <body onload="readJSON('path/to/json/files/', 'dropdown1');">
+    <h1>Create a log entry</h1>
+    <div style="display: flex;">
+      <div style="flex: 1;">
+        <label for="text1">Text 1:</label>
+        <input type="text" id="text1" name="text1"><br>
+        <label for="dropdown1">Dropdown 1:</label>
+        <select id="dropdown1" name="dropdown1" onchange="changeOptions(this,'dropdown2');"></select><br>
+        <label for="text2">Text 2:</label>
+        <input type="text" id="text2" name="text2"><br>
+        <label for="dropdown2">Dropdown 2:</label>
+        <select id="dropdown2" name="dropdown2"></select><br>
+        <button type="submit">Submit</button>
+      </div>
+      <div style="flex: 1;">
+        <div title="Tooltip 1">Tooltip 1</div>
+        <div title="Tooltip 2">Tooltip 2</div>
+        <div title="Tooltip 3">Tooltip 3</div>
+      </div>
+    </div>
+  </body>
+</html
