@@ -16,7 +16,7 @@ function readJSON(fileName) {
 }
 
 function changeOptions(dropdown) {
-    var fileName = 'C:\Users\georg\OneDrive\source\ComputerScienceNEA\FrontEnd\operatorsJson' + dropdown.value + '.json';
+    var fileName = '/var/www/html/operatorsJson' + dropdown.value + '.json';
     var options = readJSON(fileName);
     var secondDropdown = document.getElementById("secondDropdown");
     secondDropdown.innerHTML = "";
@@ -31,7 +31,7 @@ function changeOptions(dropdown) {
 
     </script>
   </head>
-  <body onload="readJSON('path/to/json/files/', 'dropdown1');">
+  <body onload="readJSON('/var/www/html/operatorsJson', 'dropdown1');">
     <h1>Create a log entry</h1>
     <div style="display: flex;">
       <div style="flex: 1;">
