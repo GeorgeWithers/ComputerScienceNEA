@@ -1,40 +1,28 @@
 import os
-import mysql.connector
-import dotenv
-from dotenv import load_dotenv
-import time
+import json
+from flask import Flask, jsonify, request
 
-load_dotenv('dbCreds.env')
+app = Flask(__name__)
 
-# mysql = mysql.connector.connect(
-#     host = str(os.getenv('dbHost')),
-#     user = str(os.getenv('dbUser')),
-#     password = str(os.getenv('dbPassword')),
-#     database = 'data'
-# )
+# Define the route for handling GET requests for the root endpoint
+@app.route('/', methods=['GET'])
+def index():
+    # List all the JSON files in the directory
+    json_files = [f for f in os.listdir() if f.endswith('.json')]
 
-mysql = mysql.connector.connect(
-    host = '127.0.0.1',
-    user = 'root',
-    password = 'SuperSecurePassword',
-    database = 'data'
-)
+    # Return a JSON object containing the list of JSON files
+    return jsonify({'files': json_files})
 
-db = mysql.cursor()
-# db.execute("CREATE TABLE table")
-print("Connected!")
+# Define the route for handling GET requests for a specific JSON file
+@app.route('/<filename>', methods=['GET'])
+def get_data(filename):
+    # Load the content of the JSON file into a Python object
+    with open(filename, 'r') as file:
+        data = json.load(file)
 
-time.sleep(5)
+    # Return the content of the JSON file as a JSON object
+    return jsonify(data)
 
-db.execute("""CREATE TABLE data (
-            uid integer,
-            year number,
-            month number,
-            day number,
-            hour number,
-            minute number,
-            second number,
-            bus text,
-            route text
-            )""")
-db.commit()
+# Main function to run the Flask app
+if __name__ == '__main__':
+    app.run(debug=True)

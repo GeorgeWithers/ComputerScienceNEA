@@ -3,35 +3,34 @@
   <head>
     <title>Create a log entry</title>
     <script>
-function readJSON(fileName) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
+      function readJSON(fileName) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
             var jsonData = JSON.parse(this.responseText);
             return jsonData;
+          }
+        };
+        xhttp.open("GET", fileName, false);
+        xhttp.send();
+      }
+
+      function changeOptions(dropdown) {
+        var fileName = '/json/' + dropdown.value + '.json';
+        var options = readJSON(fileName);
+        var secondDropdown = document.getElementById("secondDropdown");
+        secondDropdown.innerHTML = "";
+        for (var i = 0; i < options.length; i++) {
+          var opt = options[i];
+          var el = document.createElement("option");
+          el.textContent = opt;
+          el.value = opt;
+          secondDropdown.appendChild(el);
         }
-    };
-    xhttp.open("GET", fileName, false);
-    xhttp.send();
-}
-
-function changeOptions(dropdown) {
-    var fileName = '/var/www/html/operatorsJson' + dropdown.value + '.json';
-    var options = readJSON(fileName);
-    var secondDropdown = document.getElementById("secondDropdown");
-    secondDropdown.innerHTML = "";
-    for (var i = 0; i < options.length; i++) {
-        var opt = options[i];
-        var el = document.createElement("option");
-        el.textContent = opt;
-        el.value = opt;
-        secondDropdown.appendChild(el);
-    }
-}
-
+      }
     </script>
   </head>
-  <body onload="readJSON('/var/www/html/operatorsJson', 'dropdown1');">
+  <body onload="readJSON('/json/', 'dropdown1');">
     <h1>Create a log entry</h1>
     <div style="display: flex;">
       <div style="flex: 1;">
@@ -52,4 +51,4 @@ function changeOptions(dropdown) {
       </div>
     </div>
   </body>
-</html
+</html>
