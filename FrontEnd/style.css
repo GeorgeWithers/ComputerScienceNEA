@@ -1,46 +1,114 @@
-/* Bounding box for image and caption */
-.image-box {
+.header {
+  text-align: center;
+  }
+  
+  .container {
+  display: inline-flex;
+  flex-direction: row;
+  }
+  
+  .left-column {
+    width: 100%;
+    text-align: right;
+    padding-right: 10px;
+  }
+  
+  .right-column {
+    width: 100%;
+    padding-left: 10px;
+  }
+  
+  input[type="text"] {
+  height: 30px;
+  width: 150px;
+  margin-bottom: 10px;
+  }
+  
+  .button {
+  height: 30px;
+  width: 150px;
+  margin-top: 10px;
+  }
+  
+  .arrow-box {
+  height: 30px;
+  width: 150px;
+  border: 1px solid black;
+  position: relative;
+  }
+  
+  .arrow-box:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+  }
+  
+  .arrow-box-larger {
+  height: 90px;
+  width: 150px;
+  border: 1px solid black;
+  position: relative;
+  }
+  
+  .arrow-box-larger:after {
+  content: "";
+  position: absolute;
+  top: 45%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+  }
+  
+  /* Bounding box for image and caption */
+  .image-box {
   width: 50%;
   overflow: hidden;
   position: relative;
   border: 1px solid black;
   padding: 5px;
-}
-
-.caption-box {
+  }
+  
+  .caption-box {
   margin-top: 20px;
-}
-
-/* CSS for image */
-img {
+  }
+  
+  /* CSS for image */
+  img {
   width: 100%;
   height: auto;
-}
-
-/* CSS for caption */
-figcaption {
+  }
+  
+  /* CSS for caption */
+  figcaption {
   text-align: center;
   font-size: 20px;
   font-weight: bold;
   margin: -20px 0 0 0;
-}
-
-button {
+  }
+  
+  button {
   width: 100%;
   margin-bottom:5px;
   font-size: 20px;
   padding:5px;
-}
-
-button:first-child {
+  }
+  
+  button:first-child {
   height: 100px;
-}
-
-button:not(:first-child) {
+  }
+  
+  button:not(:first-child) {
   height: 50px;
-}
-
-.button-box {
+  }
+  
+  .button-box {
   margin-top:10px;
   display: flex;
   flex-direction: column;
@@ -48,4 +116,4 @@ button:not(:first-child) {
   width: 50%;
   padding-right: 20px;
   margin-left: 20px;
-}
+  }
