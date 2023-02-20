@@ -1,52 +1,65 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
-        <style>
-            body {
-              font-family: Arial, sans-serif;
-            }
-          </style>
     </head>
-<body>
-<select id='firstDropdown' onchange='change_dropdown()'>
-<option value='Arriva'>Arriva</option>
-<option value='Independents'>Independents</option>
-</select>
-<select id='secondDropdown'>
-</select>
-<script>
-function change_dropdown() {
-var selectedValue = document.getElementById('firstDropdown').value;
-var secondDropdown = document.getElementById('secondDropdown');
-secondDropdown.innerHTML = '';
-if (selectedValue === 'Arriva') {
-var option = document.createElement('option');
-option.value = 'Chirk';
-option.text = 'Chirk';
-secondDropdown.add(option);
-var option = document.createElement('option');
-option.value = 'London';
-option.text = 'London';
-secondDropdown.add(option);
-var option = document.createElement('option');
-option.value = 'Midlands';
-option.text = 'Midlands';
-secondDropdown.add(option);
-}
-if (selectedValue === 'Independents') {
-var option = document.createElement('option');
-option.value = 'Abelio';
-option.text = 'Abelio';
-secondDropdown.add(option);
-var option = document.createElement('option');
-option.value = 'Select';
-option.text = 'Select';
-secondDropdown.add(option);
-}
-}
-<div class="button-box">
-<button>Submit</button>
-</div>
-</script>
-</body>
+    <body>
+        <div id='iframeContainer'></div>
+        <select id='firstDropdown' onchange='change_dropdown()'>
+            <option value='Select Operator'>Select operator</option>
+            <option value='Arriva'>Arriva</option>
+            <option value='Independents'>Independents</option>
+          </select>
+          
+          <select id='secondDropdown' onchange='load_html()'>
+          </select>
+          <div id="iframe-container">
+          <iframe id='myIframe'></iframe>
+          
+          <script>
+          function change_dropdown() {
+            var selectedValue = document.getElementById('firstDropdown').value;
+            var secondDropdown = document.getElementById('secondDropdown');
+            secondDropdown.innerHTML = '';
+            if (selectedValue === 'Select Operator') {
+              var option = document.createElement('option');
+              option.value = '';
+              option.text = 'Select location';
+              secondDropdown.add(option);
+            }
+            if (selectedValue === 'Arriva') {
+              var option = document.createElement('option');
+              option.value = 'chirk.html';
+              option.text = 'Chirk';
+              secondDropdown.add(option);
+              var option = document.createElement('option');
+              option.value = 'london.html';
+              option.text = 'London';
+              secondDropdown.add(option);
+              var option = document.createElement('option');
+              option.value = 'midlands.html';
+              option.text = 'Midlands';
+              secondDropdown.add(option);
+            }
+            if (selectedValue === 'Independents') {
+              var option = document.createElement('option');
+              option.value = 'abelio.html';
+              option.text = 'Abelio';
+              secondDropdown.add(option);
+              var option = document.createElement('option');
+              option.value = '';
+              option.text = 'Select location';
+              secondDropdown.add(option);
+            }
+          }
+          
+          function load_html() {
+            var secondDropdown = document.getElementById('secondDropdown');
+            var selectedValue = secondDropdown.value;
+            var iframe = document.getElementById('myIframe');
+            iframe.src = selectedValue;
+          }
+          </script>
+        </div>
+    </body>
 </html>
