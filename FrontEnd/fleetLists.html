@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bus Spotting</title>
+    <script src="fleetLists.js"></script>y
+    <link rel="stylesheet" type="text/css" href="style.css">    
+  </head>
+  <body>
+    <h1>Bus Spotting</h1>
+    <div>
+      <select id='firstDropdown' onchange='changeDropdown()'>
+        <option value='Arriva'>Arriva</option>
+        <option value='Independents'>Independents</option>
+      </select>
+      <select id='secondDropdown' onchange='loadFleetList()'>
+      </select>
+    </div>
+    <div id='operator-region'></div>
+    <table id="fleet-table">
+      <!-- Fleet list data will be displayed here -->
+    </table>
+  </body>
+</html>
