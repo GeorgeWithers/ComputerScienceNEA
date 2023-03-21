@@ -1,0 +1,43 @@
+[
+    {
+      "fleetNumber": "3333",
+      "numberPlate": "FJ64 EUV",
+      "manufacturer": "Wrightbus",
+      "body": "Streetlite DF Max",
+      "chasis": "Streetlite",
+      "year": 2013,
+      "seats": 44,
+      "depot": "Telford"
+    },
+    {
+        "fleetNumber": "3696",
+        "numberPlate": "YJ12 PLV",
+        "manufacturer": "Optare",
+        "body": "Versa",
+        "chasis": "V1170",
+        "year": 2012,
+        "seats": 44,
+        "depot": "Shrewsbury"
+      },
+      {
+        "fleetNumber": "3793",
+        "numberPlate": "FL63 DYB",
+        "manufacturer": "Wrightbus",
+        "body": "Pulsar 2",
+        "chasis": "Volvo SB200",
+        "year": 2013,
+        "seats": 44,
+        "depot": "Telford"
+      },
+      {
+        "fleetNumber": "2140",
+        "numberPlate": "MX12 CEU",
+        "manufacturer": "Alexander-Dennis",
+        "body": "Enviro 200",
+        "chasis": "Enviro 200",
+        "year": 2012,
+        "seats": 30,
+        "depot": "Telford"
+      }
+  ]
+  
