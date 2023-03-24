@@ -1,37 +1,37 @@
 function changeDropdown() {
-  var firstDropdown = document.getElementById('firstDropdown');
-  var secondDropdown = document.getElementById('secondDropdown');
-  var selectedOption = firstDropdown.options[firstDropdown.selectedIndex].value;
+  var operatorDropdown = document.getElementById('operatorDropdown');
+  var regionDropdown = document.getElementById('regionDropdown');
+  var selectedOption = operatorDropdown.options[operatorDropdown.selectedIndex].value;
 
   // Only reset second dropdown options if first dropdown is changed
-  if (secondDropdown.options.length === 0 || secondDropdown.options[0].value !== selectedOption) {
-    secondDropdown.innerHTML = '';
+  if (regionDropdown.options.length === 0 || regionDropdown.options[0].value !== selectedOption) {
+    regionDropdown.innerHTML = '';
     if (selectedOption === 'Arriva') {
       var option1 = document.createElement('option');
       option1.text = 'Chirk';
       option1.value = 'Chirk';
-      secondDropdown.add(option1);
+      regionDropdown.add(option1);
       var option2 = document.createElement('option');
       option2.text = 'London';
       option2.value = 'London';
-      secondDropdown.add(option2);
+      regionDropdown.add(option2);
       var option3 = document.createElement('option');
       option3.text = 'Midlands North';
       option3.value = 'Midlands-North';
-      secondDropdown.add(option3);
+      regionDropdown.add(option3);
     } else if (selectedOption === 'Independents') {
       var option1 = document.createElement('option');
       option1.text = 'Abelio';
       option1.value = 'Abelio';
-      secondDropdown.add(option1);
+      regionDropdown.add(option1);
       var option2 = document.createElement('option');
       option2.text = 'Select';
       option2.value = 'Select';
-      secondDropdown.add(option2);
+      regionDropdown.add(option2);
     }
   }
 
-  var selectedValue = secondDropdown.options[secondDropdown.selectedIndex].value;
+  var selectedValue = regionDropdown.options[regionDropdown.selectedIndex].value;
 
   // Load fleet list from JSON file
   var xhr = new XMLHttpRequest();
@@ -63,9 +63,9 @@ function changeDropdown() {
       }
 
       // Set value of second dropdown back to selected value
-      for (var i = 0; i < secondDropdown.options.length; i++) {
-        if (secondDropdown.options[i].value === selectedValue) {
-          secondDropdown.options[i].selected = true;
+      for (var i = 0; i < regionDropdown.options.length; i++) {
+        if (regionDropdown.options[i].value === selectedValue) {
+          regionDropdown.options[i].selected = true;
           break;
         }
       }
@@ -77,10 +77,10 @@ function changeDropdown() {
   xhr.send();
 }
 function loadFleetList() {
-  var firstDropdown = document.getElementById('firstDropdown');
-  var secondDropdown = document.getElementById('secondDropdown');
-  var operator = firstDropdown.value;
-  var region = secondDropdown.value;
+  var operatorDropdown = document.getElementById('operatorDropdown');
+  var regionDropdown = document.getElementById('regionDropdown');
+  var operator = operatorDropdown.value;
+  var region = regionDropdown.value;
   var fleetListUrl = `fleetLists/${operator}-${region}.json`;
 
   // Load fleet list from JSON file

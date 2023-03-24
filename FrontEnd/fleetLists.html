@@ -2,17 +2,17 @@
 <html>
   <head>
     <title>Bus Spotting</title>
-    <script src="fleetLists.js"></script>y
+    <script src="fleetLists.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">    
   </head>
   <body>
     <h1>Bus Spotting</h1>
     <div>
-      <select id='firstDropdown' onchange='changeDropdown()'>
+      <select id='operatorDropdown' onchange='changeDropdown()'>
         <option value='Arriva'>Arriva</option>
         <option value='Independents'>Independents</option>
       </select>
-      <select id='secondDropdown' onchange='loadFleetList()'>
+      <select id='regionDropdown' onchange='loadFleetList()'>
       </select>
     </div>
     <div id='operator-region'></div>

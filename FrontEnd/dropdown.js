@@ -1,6 +1,6 @@
 function changeDropdown() {
-    var operatorSelect = document.getElementById('firstDropdown');
-    var regionSelect = document.getElementById('secondDropdown');
+    var operatorSelect = document.getElementById('operatorDropdown');
+    var regionSelect = document.getElementById('regionDropdown');
     var operator = operatorSelect.value;
     var region = regionSelect.value;
     var fleetListUrl = fleetLists[operator][region];

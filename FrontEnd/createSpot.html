@@ -2,17 +2,8 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="fleetLists.js"></script>
   <title>Log Entry</title>
-
-  <style>
-    .container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-  </style> 
-
 </head>
 <body>
   <div class="header">Create a Log Entry</div>
@@ -27,6 +18,13 @@
         <input type="text" id="fleet-number">
       </div>
       <!-- Add the dropdown menus here -->
+      <select id='operatorDropdown' onchange='changeDropdown()'>
+        <option value='Arriva'>Arriva</option>
+        <option value='Independents'>Independents</option>
+      </select>
+      <select id='regionDropdown' onchange='changeDropdown()'>
+      </select>
+
       <div>
         <label for="route">Route (optional):</label>
         <input type="text" id="route">
@@ -36,13 +34,9 @@
         <input type="text" id="location">
       </div>
       <div>
-        <button type="submit" class="button">Log</button>
+        <button type="Button" class="button" id="createLogButton">Log</button>
       </div>
-    </div>
-    <div class="right-column">
-      <div class="arrow-box">Placeholder text 1</div>
-      <div class="arrow-box-larger">Placeholder text 2</div>
-      <div class="arrow-box">Placeholder text 3</div>
+      <script src="createSpot.js"></script>
     </div>
   </div>
 </body>

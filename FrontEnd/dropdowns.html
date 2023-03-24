@@ -1,39 +1,39 @@
 <html>
 <body>
-<select id='firstDropdown' onchange='change_dropdown()'>
+<select id='operatorDropdown' onchange='change_dropdown()'>
 <option value='Arriva'>Arriva</option>
 <option value='Independents'>Independents</option>
 </select>
-<select id='secondDropdown'>
+<select id='regionDropdown'>
 </select>
 <script>
 function change_dropdown() {
-var selectedValue = document.getElementById('firstDropdown').value;
-var secondDropdown = document.getElementById('secondDropdown');
-secondDropdown.innerHTML = '';
+var selectedValue = document.getElementById('operatorDropdown').value;
+var regionDropdown = document.getElementById('regionDropdown');
+regionDropdown.innerHTML = '';
 if (selectedValue === 'Arriva') {
 var option = document.createElement('option');
 option.value = 'Chirk';
 option.text = 'Chirk';
-secondDropdown.add(option);
+regionDropdown.add(option);
 var option = document.createElement('option');
 option.value = 'London';
 option.text = 'London';
-secondDropdown.add(option);
+regionDropdown.add(option);
 var option = document.createElement('option');
 option.value = 'Midlands';
 option.text = 'Midlands';
-secondDropdown.add(option);
+regionDropdown.add(option);
 }
 if (selectedValue === 'Independents') {
 var option = document.createElement('option');
 option.value = 'Abelio';
 option.text = 'Abelio';
-secondDropdown.add(option);
+regionDropdown.add(option);
 var option = document.createElement('option');
 option.value = 'Select';
 option.text = 'Select';
-secondDropdown.add(option);
+regionDropdown.add(option);
 }
 }
 </script>
